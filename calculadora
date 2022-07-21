@@ -1,0 +1,55 @@
+# Calculadora
+from time import sleep
+
+
+def bem_vindo():
+        print("*********************************")
+        print("***        Calculadora        ***")
+        print("*********************************")
+
+
+def escolher():
+    num1 = int(input('Digite um número: '))
+    num2 = int(input('Digite outro número: '))
+    escolha = 0
+
+    while escolha != 5:
+        print('O que você deseja fazer com estes números?')
+        print(' [1] somar', '\n', '[2] multiplicar', '\n', '[3] dividir', '\n', '[4] novos números', '\n',
+              '[5] sair do programa')
+        escolha = int(input('Escolha uma opção: '))
+
+        if escolha == 1:
+            print('{} + {} = {}'.format(num1, num2, num1 + num2))
+
+        elif escolha == 2:
+            print('{} x {} = {}'.format(num1, num2, num1 * num2))
+
+        elif escolha == 3:
+            print('{} / {} = {:.2f}'.format(num1, num2, num1/ num2))
+
+        elif escolha == 4:
+            print('Digite os novos números...')
+            sleep(1)
+            num1 = int(input('Digite um número: '))
+            num2 = int(input('Digite outro número: '))
+
+        elif escolha == 5:
+            print('Finalizando...\n')
+            sleep(1.5)
+
+            break
+        else:
+            print('Não entendi...')
+        print('=-'*20)
+    print('Fim do Programa. Volte sempre!')
+    print('Programa desenvolvido por @liliansom(Github).')
+
+
+def calcular():
+    bem_vindo()
+    escolher()
+
+
+if __name__ == "__main__":
+    calcular()
