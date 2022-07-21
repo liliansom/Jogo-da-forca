@@ -113,6 +113,7 @@ def jogar():
     elif enforcou:
         print('Acabaram suas tentativas... Você foi enforcado! \nA palavra era {}!'.format(palavra_secreta))
     print("*** Fim do jogo ***")
+    print('Programa desenvolvido por @liliansom(Github).')
 
 
 if __name__ == "__main__":
