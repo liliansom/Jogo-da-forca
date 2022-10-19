@@ -1,0 +1,26 @@
+# Programa para mesclar PDF's em um mesmo arquivo
+
+import PyPDF2
+import pathlib
+
+#Contagem de Arquivos
+contagem = 1
+
+mês = int(input('Digite o mês de referência: '))
+ano = int(input('Digite o ano de referência: '))
+
+merge = PyPDF2.PdfMerger()
+
+for path in pathlib.Path(r'C:\Users\User\PycharmProjects\Pypdf\Arquivos\.2022\2_renomeados\\').iterdir():
+    if path.is_file():
+        nome = '{}_{}_Paciente {}'.format(mês, ano, contagem) + '.pdf'
+        print(nome)
+        arq = (r'C:\Users\User\PycharmProjects\Pypdf\Arquivos\.2022\2_renomeados\{}'.format(nome))
+        print(arq)
+        binario = open(arq,'rb')
+        dados = PyPDF2.PdfReader(arq)
+        print(dados)
+        merge.append(dados)
+        contagem += 1
+
+merge.write(r'C:\Users\User\PycharmProjects\Pypdf\Arquivos\.2022\3_Compilados\Mês_{}\Compilado_{}_{}.pdf'.format(mês, mês, ano))
