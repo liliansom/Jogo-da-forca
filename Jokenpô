@@ -29,36 +29,37 @@ def jogar():
     sleep(1)
     print('Ken', end='')
     sleep(1)
-    print('Pô!\n')
+    print('Pô!')
     pc = random.choice(jkp)
     print('{} escolheu {}.'.format(nome, esc))
-    print('COMPUTADOR escolheu {}.\n'.format(pc))
+    print('COMPUTADOR escolheu {}.'.format(pc))
 
 # PC PERDE
     if (esc == 'PEDRA' and pc == "TESOURA") or (esc == 'PAPEL' and pc == 'PEDRA') or (
             esc == 'TESOURA' and pc == 'PAPEL'):
-        print('{} X {}:'.format(esc, pc))
-        print('Você ganhou!!')
+        print('Você ganhou!!\n')
 
     elif esc == pc:
-        print('{} X {}:'.format(esc, pc))
-        print('Empatou!')
+        print('Empatou!\n')
 # PC GANHA:
     else:
-        print('{} X {}:'.format(esc, pc))
-        print('Você perdeu!!')
+        print('Você perdeu!!\n')
 
-    novo = (input(' 1) SIM\n 2) NÃO\nTentar novamente? '))
+    sleep(1)
+    novo = (input('Tentar novamente?\n 1) SIM\n 2) NÃO\n Digite sua resposta: '))
     while novo != '1' and novo != '2':
+
         print('Não entendi...')
-        novo = (input(' 1) SIM\n 2) NÃO\nTentar novamente? '))
+        sleep(1)
+        novo = (input('Tentar novamente\n 1) SIM\n 2) NÃO\n Digite sua resposta: '))
 
     if novo == '1':
         jogar()
 
     else:
-        print('FIM DE JOGO\n Desenvolvido por @liliansom(Github).')
+        print(' FIM DE JOGO\n Desenvolvido por @liliansom(Github).')
 
-iniciar()
-jogar()
+if __name__ == "__main__":
+    iniciar()
+    jogar()
 
