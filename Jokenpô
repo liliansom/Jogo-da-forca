@@ -1,0 +1,64 @@
+# JOKENPÔ
+from time import sleep
+import random
+
+def iniciar():
+    global nome
+    print('\033[1;34m-=\033[m' * 5)
+    print('\033[1;34m JoKenPô\033[m')
+    print('\033[1;34m-=\033[m' * 5)
+
+    nome = input('Digite seu nome: ')
+    nome = nome.upper()
+    if nome == "":
+        nome = 'HUMANO'
+        return nome
+
+def jogar():
+    jkp = ['PEDRA',
+       'PAPEL',
+       'TESOURA']
+
+    esc = (str(input('Pedra, Papel ou Tesoura? ').upper().strip()))
+    while esc != 'PEDRA' and esc != 'PAPEL' and esc != 'TESOURA':
+        print('Tente novamente...')
+        esc = (str(input('Pedra, Papel ou Tesoura? ').upper().strip()))
+
+# PC
+    print('Jo', end='')
+    sleep(1)
+    print('Ken', end='')
+    sleep(1)
+    print('Pô!\n')
+    pc = random.choice(jkp)
+    print('{} escolheu {}.'.format(nome, esc))
+    print('COMPUTADOR escolheu {}.\n'.format(pc))
+
+# PC PERDE
+    if (esc == 'PEDRA' and pc == "TESOURA") or (esc == 'PAPEL' and pc == 'PEDRA') or (
+            esc == 'TESOURA' and pc == 'PAPEL'):
+        print('{} X {}:'.format(esc, pc))
+        print('Você ganhou!!')
+
+    elif esc == pc:
+        print('{} X {}:'.format(esc, pc))
+        print('Empatou!')
+# PC GANHA:
+    else:
+        print('{} X {}:'.format(esc, pc))
+        print('Você perdeu!!')
+
+    novo = (input(' 1) SIM\n 2) NÃO\nTentar novamente? '))
+    while novo != '1' and novo != '2':
+        print('Não entendi...')
+        novo = (input(' 1) SIM\n 2) NÃO\nTentar novamente? '))
+
+    if novo == '1':
+        jogar()
+
+    else:
+        print('FIM DE JOGO\n Desenvolvido por @liliansom(Github).')
+
+iniciar()
+jogar()
+
